@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    	<head>
+    		<TITLE>Test App</TITLE>
+    		<meta charset="utf-8">
+
+        <style type="text/css">
+
+          #shape {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+          }
+
+        </style>
+
+   	   </head>
+
+
+<body
+>
+
+    <p>Your Time: <span id="timeTaken"></span></p>
+	 <div id="shape">
+       	 
+	</div>
+
+	
+  <script type="text/javascript">
+
+        var start = new Date().getTime();
+      
+      document.getElementById("shape").onclick = function() {
+          
+          
+          document.getElementById("shape").style.display = "none";
+          
+            var end = new Date().getTime();
+          
+          var timeTaken = (end - start) / 1000;
+          
+          document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+          
+      }
+
+  </script>
+
+</body>
+
+</html>
