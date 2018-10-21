@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html>
-    	<head>
-    		<TITLE>Test App</TITLE>
-    		<meta charset="utf-8">
 
-        <style type="text/css">
+<head>
+    <TITLE>Test App</TITLE>
+    <meta charset="utf-8">
 
-          #shape {
+    <style type="text/css">
+        #shape {
             width: 200px;
             height: 200px;
             background-color: green;
-          }
+            display: none;
+            position: relative;
+        }
+    </style>
 
-        </style>
-
-   	   </head>
+</head>
 
 
-<body
->
+<body>
 
     <p>Your Time: <span id="timeTaken"></span></p>
-	 <div id="shape">
-       	 
-	</div>
+    <div id="shape">
 
-	
-  <script type="text/javascript">
+    </div>
 
+
+    <script type="text/javascript">
+        
         var start = new Date().getTime();
-      
-      document.getElementById("shape").onclick = function() {
-          
-          
-          document.getElementById("shape").style.display = "none";
-          
-            var end = new Date().getTime();
-          
-          var timeTaken = (end - start) / 1000;
-          
-          document.getElementById("timeTaken").innerHTML = timeTaken + "s";
-          
-      }
+        
+        function makeShapeAppear() {
+            
+            var top = Math.random() * 400;
+            var left = Math.random() * 400;
+            document.getElementById("shape").style.top = top + "px";
+            document.getElementById("shape").style.left = left + "px";
+            document.getElementById("shape").style.display = "block";
+            
+            start = new Date().getTime();
+            
+            
+        }
+        
+        function appearAfterDelay(){
+            
+        setTimeout(makeShapeAppear, Math.random() * 3000);
+            
+        }
+        
+        appearAfterDelay();
+        
+        document.getElementById("shape").onclick = function() {
 
-  </script>
+            document.getElementById("shape").style.display = "none";
+
+            var end = new Date().getTime();
+
+            var timeTaken = (end - start) / 1000;
+
+            document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+        
+            appearAfterDelay();
+        }
+    
+    </script>
 
 </body>
 
